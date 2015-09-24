@@ -3,7 +3,7 @@
 
 $kins-layout:smart;
 @import 'kins/*.png';
-@include all-kins-sprites;
+$kins-sprite-dimensions: true;
 
 @include font-face('Droid Sans', inline-font-files('Droid_Sans/DroidSans.ttf'));
 @include font-face('Droid Sans', inline-font-files('Droid_Sans/DroidSans-Bold.ttf'), normal, bold);
@@ -29,20 +29,14 @@ div {
 
   &:nth-of-type(1) {
     @include kins-sprite(kins1);
-    width: kins-sprite-width(kins1);
-    height: kins-sprite-height(kins1);
   }
 
   &:nth-of-type(2) {
     @include kins-sprite(kins2);
-    width: kins-sprite-width(kins2);
-    height: kins-sprite-height(kins2);
   }
 
   &:nth-of-type(3) {
     @include kins-sprite(kins3);
-    width: kins-sprite-width(kins3);
-    height: kins-sprite-height(kins3);
   }
 }
 
