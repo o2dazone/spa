@@ -14,14 +14,13 @@ module.exports = {
 	},
 	styles: {
 		paths: {
-			all: './styles/**/*.scss',
-			entry: './styles/styles.scss',
+			all: './sass/**/*.scss',
+			entry: './sass/styles.scss',
 			output: {
 				dev: './build',
 				prod: './build'
 			}
-		},
-		sourcemaps: true
+		}
 	},
 	ports: {
 		express: 8080,
@@ -38,17 +37,11 @@ module.exports = {
 		},
 		resolveLoader: {
 			modulesDirectories: ['node_modules']
-		},
-		module: {
-			loaders: [{
-				test: /\.js$/,
-				loader: 'es6-loader'
-			}]
 		}
 	},
 	connect: {
 		port: 8080,
-		root: './build'
+		root: './'
 	},
 	liveReload: {
 		port: 35729
