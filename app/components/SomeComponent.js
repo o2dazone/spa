@@ -1,8 +1,8 @@
 import React from 'react';
 
-const SomeComponent = () => {
+const SomeComponent = ({ onLinkClicked }) => {
   return (
-    <span>whoa</span>
+    <a href="#" onClick={onLinkClicked}>Change state</a>
   );
 };
 

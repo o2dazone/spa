@@ -3,24 +3,39 @@ import { Provider, connect } from 'react-redux';
 
 import SomeComponent from './SomeComponent';
 
+import { storeInState } from 'actions/someAction';
+
 import styles from 'styles/app.scss';
 
 class App extends Component {
   constructor(props) {
     super(props);
+    this.onLinkClicked = this.onLinkClicked.bind(this);
+  }
+
+  onLinkClicked(e) {
+    e.preventDefault();
+    const { storeInState } = this.props;
+    storeInState();
   }
 
   render() {
-    const { store } = this.props;
-
+    const { store, someState: { myString } } = this.props;
     return (
       <Provider store={store}>
         <div className={styles.foo}>
-          <SomeComponent />
+          <p>{ myString }</p>
+          <SomeComponent onLinkClicked={this.onLinkClicked} />
         </div>
       </Provider>
     );
   }
 }
 
-export default connect()(App);
+function mapStateToProps(state) {
+  return {
+    someState: state.someState
+  };
+}
+
+export default connect( mapStateToProps, { storeInState })(App);
