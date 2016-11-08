@@ -17,7 +17,9 @@ class App extends Component {
     const { store, someState: { colors } } = this.props;
     return (
       <Provider store={store}>
-        { colors ? <ColorComponent colors={colors} /> : ''}
+        <div>
+          { colors ? <ColorComponent colors={colors} /> : ''}
+        </div>
       </Provider>
     );
   }
