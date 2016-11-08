@@ -1,2 +1,1 @@
-export const STORE_IN_STATE = 'STORE_IN_STATE';
 export const RECEIVE_COLORS = 'RECEIVE_COLORS';

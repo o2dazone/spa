@@ -1,12 +1,5 @@
-import { STORE_IN_STATE, RECEIVE_COLORS } from '../constants';
+import { RECEIVE_COLORS } from '../constants';
 import fetch from 'isomorphic-fetch';
-
-export function storeInState() {
-  return {
-    type: STORE_IN_STATE,
-    myString: 'world'
-  };
-}
 
 function receiveColors(colors) {
   return {
