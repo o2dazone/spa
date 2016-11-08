@@ -4,6 +4,7 @@
 const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
+const request = require('request');
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 
@@ -42,6 +43,11 @@ if (isDeveloping) {
 // main page
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/index.html'));
+});
+
+app.use('/colors', function(req, res) {
+  const url = 'http://www.colourlovers.com/api/colors/random?format=json';
+  req.pipe(request(url)).pipe(res);
 });
 
 app.listen(port, '0.0.0.0', function onStart(err) {
